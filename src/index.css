@@ -1,0 +1,98 @@
+/* Reset and basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('https://images.pexels.com/photos/3991976/pexels-photo-3991976.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #f2ff01;
+}
+
+h1 {
+  text-align: center;
+  color: #ffa007;
+  margin-top: 2rem; /* Add margin-top for spacing */
+}
+
+/* Form styles */
+#new-player-form {
+  display: flex;
+  flex-wrap: wrap; /* Wrap inputs if they exceed container width */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  max-width: 800px; /* Limit form width */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+#new-player-form label {
+  margin-right: 10px;
+  margin-bottom: 10px; /* Add margin-bottom for spacing between inputs */
+}
+
+#new-player-form input {
+  flex: 1;
+  margin-right: 10px;
+  margin-bottom: 10px; /* Add margin-bottom for spacing between inputs */
+}
+
+#new-player-form button {
+  background-color: #fcb205;
+  color: rgb(5, 3, 3);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#new-player-form button:hover {
+  background-color: #fff307;
+}
+
+/* Player card styles */
+#all-players-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  max-width: 1280px; /* Limit the width of the container */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.player-card {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: calc(33.33% - 40px);
+}
+
+.player-card img {
+  max-width: 100%;
+  max-height: 200px;
+  height: auto;
+}
+
+/* Button styles */
+.details-btn,
+.remove-btn {
+  background-color: #fcb205;
+  color: rgb(5, 3, 3);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.details-btn:hover,
+.remove-btn:hover {
+  background-color: #fff307;
+}
