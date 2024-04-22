@@ -1,6 +1,5 @@
 // NewPlayerForm.jsx
 import React, { useState } from 'react';
-import { addNewPlayer } from '../API';
 
 const NewPlayerForm = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +17,9 @@ const NewPlayerForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await addNewPlayer(formData);
+      // Placeholder for addNewPlayer function
+      console.log('Form Data:', formData);
+
       // Reset form after successful submission
       setFormData({
         name: '',
@@ -40,7 +41,7 @@ const NewPlayerForm = () => {
         <label htmlFor="name">Name:</label>
         <input
           type="text"
-          id="name" // Add id attribute
+          id="name"
           name="name"
           value={formData.name}
           onChange={handleChange}
@@ -48,7 +49,7 @@ const NewPlayerForm = () => {
         <label htmlFor="age">Age:</label>
         <input
           type="text"
-          id="age" // Add id attribute
+          id="age"
           name="age"
           value={formData.age}
           onChange={handleChange}
@@ -56,7 +57,7 @@ const NewPlayerForm = () => {
         <label htmlFor="breed">Breed:</label>
         <input
           type="text"
-          id="breed" // Add id attribute
+          id="breed"
           name="breed"
           value={formData.breed}
           onChange={handleChange}
@@ -64,7 +65,7 @@ const NewPlayerForm = () => {
         <label htmlFor="imageUrl">Image URL:</label>
         <input
           type="text"
-          id="imageUrl" // Add id attribute
+          id="imageUrl"
           name="imageUrl"
           value={formData.imageUrl}
           onChange={handleChange}

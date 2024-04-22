@@ -1,10 +1,10 @@
 // App.jsx
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PlayerCard from './components/PlayerCard';
 import AllPlayers from './components/AllPlayers';
 import SinglePlayer from './components/SinglePlayer';
 import NewPlayerForm from './components/NewPlayerForm'; // Import the NewPlayerForm component
-import { PlayerCard } from './PlayerCard';
 import './App.css';
 
 function App() {
