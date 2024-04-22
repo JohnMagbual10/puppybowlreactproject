@@ -1,5 +1,5 @@
-// NewPlayerForm.jsx
 import React, { useState } from 'react';
+import { addNewPlayer } from '../API';
 
 const NewPlayerForm = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +9,8 @@ const NewPlayerForm = () => {
     imageUrl: ''
   });
 
+  const [errors, setErrors] = useState({}); // State for validation errors
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -16,10 +18,24 @@ const NewPlayerForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      // Placeholder for addNewPlayer function
-      console.log('Form Data:', formData);
+    
+    // Validate form fields
+    const validationErrors = {};
+    if (formData.name.trim() === '') {
+      validationErrors.name = 'Name is required';
+    }
+    if (formData.age.trim() === '' || isNaN(formData.age)) {
+      validationErrors.age = 'Age must be a number';
+    }
+    // Add more validation rules as needed...
 
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return; // Prevent form submission if there are validation errors
+    }
+
+    try {
+      await addNewPlayer(formData);
       // Reset form after successful submission
       setFormData({
         name: '',
@@ -46,6 +62,8 @@ const NewPlayerForm = () => {
           value={formData.name}
           onChange={handleChange}
         />
+        {errors.name && <p className="error">{errors.name}</p>}
+        
         <label htmlFor="age">Age:</label>
         <input
           type="text"
@@ -54,22 +72,10 @@ const NewPlayerForm = () => {
           value={formData.age}
           onChange={handleChange}
         />
-        <label htmlFor="breed">Breed:</label>
-        <input
-          type="text"
-          id="breed"
-          name="breed"
-          value={formData.breed}
-          onChange={handleChange}
-        />
-        <label htmlFor="imageUrl">Image URL:</label>
-        <input
-          type="text"
-          id="imageUrl"
-          name="imageUrl"
-          value={formData.imageUrl}
-          onChange={handleChange}
-        />
+        {errors.age && <p className="error">{errors.age}</p>}
+        
+        {/* Add input fields for breed and imageUrl with similar validation and error display */}
+        
         <button type="submit">Add Player</button>
       </form>
     </div>

@@ -1,7 +1,8 @@
 // SinglePlayer.jsx
+
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchSinglePlayer } from '../API';
+import { fetchSinglePlayer, deletePlayer } from '../API';
 
 function SinglePlayer() {
   const [player, setPlayer] = useState(null);
@@ -15,6 +16,16 @@ function SinglePlayer() {
     getPlayerByID();
   }, [playerId]);
 
+  const handleDelete = async () => {
+    try {
+      await deletePlayer(playerId);
+      // Redirect to the players list or do any other action after deletion
+    } catch (error) {
+      console.error('Error deleting player:', error);
+      // Handle error, show error message, etc.
+    }
+  };
+
   if (!player) return <h3>Loading...</h3>;
 
   return (
@@ -24,7 +35,8 @@ function SinglePlayer() {
       <p>Age: {player.age}</p>
       <p>Breed: {player.breed}</p>
       <p>Owner: {player.owner}</p>
-      {/* Add more details as needed */}
+      {/* Add delete button */}
+      <button onClick={handleDelete}>Delete Player</button>
     </div>
   );
 }

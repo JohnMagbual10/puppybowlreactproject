@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PlayerCard from './components/PlayerCard';
 import AllPlayers from './components/AllPlayers';
 import SinglePlayer from './components/SinglePlayer';
-import NewPlayerForm from './components/NewPlayerForm'; // Import the NewPlayerForm component
+import NewPlayerForm from './components/NewPlayerForm';
 import './App.css';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<AllPlayers />} />
         <Route path="/players" element={<AllPlayers />} />
         <Route path="/players/:playerId" element={<SinglePlayer />} />
-        <Route path="/new-player" element={<NewPlayerForm />} /> {/* Add route for NewPlayerForm */}
+        <Route path="/new-player" element={<NewPlayerForm />} />
       </Routes>
     </>
   );
