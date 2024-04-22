@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Define your component as a named function
 function PlayerCard({ player, onDelete }) {
   const handleDelete = () => {
     // Call the onDelete callback function passed from the parent component
@@ -22,4 +23,5 @@ function PlayerCard({ player, onDelete }) {
   );
 }
 
-export default PlayerCard;
+// Export the component as a named export
+export default { 'PlayerCard'};
