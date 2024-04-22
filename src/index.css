@@ -22,8 +22,7 @@ h1 {
 
 /* Form styles */
 #new-player-form {
-  display: flex;
-  flex-wrap: wrap; /* Wrap inputs if they exceed container width */
+  margin-top: 20px; /* Adjust as needed to position the form */
   justify-content: space-between;
   align-items: center;
   padding: 20px;

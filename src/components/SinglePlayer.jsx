@@ -10,19 +10,30 @@ function SinglePlayer() {
 
   useEffect(() => {
     const getPlayerByID = async () => {
-      const player = await fetchSinglePlayer(playerId);
-      setPlayer(player);
+      try {
+        const player = await fetchSinglePlayer(playerId);
+        setPlayer(player);
+      } catch (error) {
+        console.error('Error fetching player:', error);
+        // Handle error, display error message, etc.
+      }
     };
     getPlayerByID();
   }, [playerId]);
 
   const handleDelete = async () => {
+    if (!playerId) {
+      console.error('Invalid playerId:', playerId);
+      // Handle invalid playerId, display error message, etc.
+      return;
+    }
+
     try {
       await deletePlayer(playerId);
-      // Redirect to the players list or do any other action after deletion
+      // Redirect or perform any other action after successful deletion
     } catch (error) {
       console.error('Error deleting player:', error);
-      // Handle error, show error message, etc.
+      // Handle error, display error message, etc.
     }
   };
 

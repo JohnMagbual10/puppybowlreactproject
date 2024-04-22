@@ -46,17 +46,15 @@ const addNewPlayer = async (playerObj) => {
 };
 
 const deletePlayer = async (playerId) => {
+    console.log('Deleting player with ID:', playerId);
     try {
-      const response = await fetch(`${APIURL}/players/${playerId}`, {
-        method: 'DELETE',
-      });
-      const result = await response.json();
-      if (result.error) throw result.error;
-      return result.data.player;
-    } catch (err) {
-      console.error('Uh oh, trouble deleting player!', err);
-      return null;
+      // Your delete player logic here
+    } catch (error) {
+      console.error('Error deleting player:', error);
+      throw error; // Rethrow the error to handle it in the calling code
     }
   };
+  
+  
   
   export { fetchAllPlayers, fetchSinglePlayer, addNewPlayer, deletePlayer };

@@ -11,6 +11,7 @@ function App() {
   return (
     <>
       <h1>Puppy Bowl</h1>
+      
       <Routes>
         <Route path="/" element={<AllPlayers />} />
         <Route path="/players" element={<AllPlayers />} />
